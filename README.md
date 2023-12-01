@@ -1,6 +1,5 @@
 # about-me
 
-# LAB - 02
 
 ## About Me
 
