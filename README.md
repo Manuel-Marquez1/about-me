@@ -15,7 +15,7 @@ I build an app with a direct and powerful purpose. It does all of the things tha
 ### Lighthouse Accessibility Report Score
 
 * Provide a screenshot of your score after running a Lighthouse Accessibility report.
-  [Lighthouse Report](Lab02 Lighthouse Score.png)
+  [Lighthouse Report](https://github.com/Manuel-Marquez1/about-me/blob/main/Lab02%20Lighthouse%20Score.png)
 
 ### Reflections and Comments
 
