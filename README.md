@@ -3,7 +3,7 @@
 
 ## About Me
 
-I build an app with a direct and powerful purpose. It does all of the things that it accomplishes well. I should describe the purpose and functionality so those that visit my README understand the app
+I build an app with a direct and powerful purpose. It does all of the things that it accomplishes well. I should describe the purpose and functionality so those who visit my README understand the app
 
 ### Author: Student/Group Name
 
@@ -15,7 +15,7 @@ I build an app with a direct and powerful purpose. It does all of the things tha
 ### Lighthouse Accessibility Report Score
 
 * Provide a screenshot of your score after running a Lighthouse Accessibility report.
-  (Lighthouse Report)[Lab02 Lighthouse Score.png]
+  [Lighthouse Report](Lab02 Lighthouse Score.png)
 
 ### Reflections and Comments
 
