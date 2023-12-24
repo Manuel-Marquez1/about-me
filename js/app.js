@@ -1,75 +1,41 @@
+
+
+//DONE:  Add a 6th question to the guessing game that takes in a numeric input by prompting the user to guess a number.
+//DONE: Pick a number for the user to guess.
+//DONE: Indicates through an alert if the guess is “too high” 
+//DONE: Alert if guess is “too low”.
+//DONE:Alert if they are correct.
+//DONE: It should give the user exactly four opportunities to get the correct answer.- LOOP
+//DONE: After all attempts have been exhausted, tell the user the correct answer. Consider using a loop of some sort.
 'use strict';
 
-//DONE: Ask the user their name through a prompt()
-let questionOne = prompt('What is your name?');
+let myAge = 26;
 
-//DONE: Display that name back to the user through a custom greeting welcoming them to your site.
+for (let attempts = 4; attempts > 0; attempts--) {
+  let guessMyAge = prompt('What is my age as of 2023?');
 
-//Note to self: Usa comilla invertida.
-alert(`Welcome to my site ${questionOne}! Lets play a guessing game. Please answer with Yes OR No`);
-
-//TODO: Prompt the user a total of 5 questions (yes/no answers) & replace them with an alert.
-
-//Guessing question one
-
-let questionOneGuess = prompt("Is my middle name Adrian?").toLowerCase();
-
-if (questionOneGuess === "Y" ||questionOneGuess === "yes" ){
-  alert("You are right! My middle name is Adrian");
-
-} else if (questionOneGuess === "N" ||questionOneGuess === "no"){
-  alert("You are wrong; my middle name is indeed Adrian!");
-} 
+  if (guessMyAge > myAge) {
+    alert('Sorry, that is too high! Please try again');
+  } else if (guessMyAge < myAge) {
+    alert('Sorry, that is too low! Please try again');
+  } else if (Number(guessMyAge) === myAge) {  //FIXED!
+    alert('You are right!!! My age is 26 years old as of 2023');
+    break; //This line will break the foor loop
+    
+  }
 
 
-//Guessing question two
-
-let questionTwoGuess = prompt("Was I born in Mexico City?").toLowerCase();
-
-if (questionTwoGuess === "Y" ||questionTwoGuess === "yes" ){
-  alert("You are right! I was born in Mexico City!!!");
-
-} else if (questionTwoGuess === "N" ||questionTwoGuess === "no"){
-  alert("You are wrong; I was actually born in Mexico City");
-} 
-
-
-//Guessing Question three
-let questionThreeGuess = prompt("Is basketball my favorite sport").toLowerCase();
-
-if (questionThreeGuess === "Y" ||questionThreeGuess === "yes" ){
-  alert("You are right! Basketball is my favorite sport!!!");
-
-} else if (questionThreeGuess === "N" ||questionThreeGuess === "no"){
-  alert("Sorry, Basketball is actually my favorite sport");
-} 
-
-
-//Guessing Question four
-let questionFourGuess = prompt("Are doughnuts my favorite thing for dessert?").toLowerCase();
-
-if (questionFourGuess === "Y" ||questionFourGuess === "yes" ){
-  alert("You are right! Doughnuts are my favorite thing for dessert!");
-
-} else if (questionFourGuess === "N" ||questionFourGuess === "no"){
-  alert("Sorry, Doughnuts are actually my favorite dessert");
-} 
-
-//Guessing Question five
-let questionFiveGuess = prompt("Did I go to college in Seattle?").toLowerCase();
-
-if (questionFiveGuess === "Y" ||questionFiveGuess === "yes" ){
-  alert("You are right! I did go to community college in Seattle");
-
-} else if (questionFiveGuess === "N" ||questionFiveGuess === "no"){
-  alert("Sorry, you are wrong - I actually went to college in Seattle");
-} 
+  if (attempts === 1){
+    alert('You are out of guesses, my real age is 26 years old as of 2023');
+  }
+}
 
 
 
-//TODO: Display the user’s name back to them in your final message to the user.
 
-alert(`Hey ${questionOne}! Thank you for playing this guessing game. Here is a webpage with some facts about me.`);
+//STOPPED AT 42:56
+
+
 
 
 
