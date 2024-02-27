@@ -24,10 +24,26 @@ for (let attempts = 4; attempts > 0; attempts--) {
     
   }
 
+// 6th Question
+  let no_sleep = 3;  //The most I have spent without sleeping
 
-  if (attempts === 1){
-    alert('You are out of guesses, my real age is 26 years old as of 2023');
+for (let attempts = 4; attempts > 0; attempts--) {
+  let guess_no_sleep = prompt('What is my the maximum amount of days that I have spent without sleeping?');
+
+  if (guess_no_sleep > no_sleep) {
+    alert('Oops, too much!');
+  } else if (guess_no_sleep < no_sleep) {
+    alert('Oops, too little!');
+  } else if (guess_no_sleep === no_sleep) {  
+    alert('You are right!!! The most that i have spent without sleeping is 3 days!!1');
+    break; //This line will break the foor loop
+    
   }
+
+
+  //if (attempts === 1){
+    //alert('You are out of guesses, my real age is 26 years old as of 2023');
+  //}
 }
 
 
