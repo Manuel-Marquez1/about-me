@@ -37,3 +37,19 @@ if (attemptCount === 4) { // After 4 attempts (<= 4)
 
 // Part 3 - Javascript
 
+const correct_answers = ["Churros","Tacos","Pho"];
+
+
+
+let question_seven = prompt("Which of these 7 foods are my fav?: Churros, Tacos, Pho, Pizza, Burgurs, Hawaiian, or Mongolian");
+
+if(correct_answers.includes(question_seven)){
+  alert("Correct");
+
+}else {
+  alert("The answer is incorrect!");
+
+}
+
+
+
