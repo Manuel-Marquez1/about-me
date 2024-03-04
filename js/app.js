@@ -1,25 +1,39 @@
-const last_Name_Length = 5;
+//Part 1: HTML - COMPLETED
 
-let attempts = 0;
-let guess;
-let running = true;
 
-while(running){
+//PART 2 - Javascript
 
-  guess = window.prompt(`How many letters are there in my last name?`);
+`use strict`;
 
-  if(guess > 5){
+const lastNameLength = 5; // Hardcoded secret number (5)
+let attemptCount = 0; // Keeps track of guess attempts
+
+while (attemptCount < 4) { // Use <= to include 4 attempts
+  guess = prompt(`How many letters are there in my last name?`);
+  guess = parseInt(guess); // Convert guess to a number, handle potential errors
+
+  // Handle invalid input gracefully
+  if (isNaN(guess)) {
+    alert("Invalid guess. Please enter a number.");
+    continue; // Skip to the next iteration without incrementing attempt count
+  }
+
+  if (guess > lastNameLength) {
     alert(`You are a bit high!`);
-  }
-  else if(guess < 5){
+  } else if (guess < lastNameLength) {
     alert(`Sorry, too short!`);
+  } else {
+    alert(`Correct, you are right! The answer is ${lastNameLength}`);
+    break; // Exit the loop even after correct guess
   }
-  else{
-    attempts++;
-    if(guess==5){
-      alert(`Correct you are right! The answer is ${last_Name_Length}. It took you ${attempts} attempt.`);
-    }
-  }running = false;
 
-  
+  attemptCount++; // Increment attempt count after a valid guess
 }
+
+if (attemptCount === 4) { // After 4 attempts (<= 4)
+  alert("You lose! The answer was " + lastNameLength);
+}
+
+
+// Part 3 - Javascript
+
