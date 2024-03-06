@@ -1,9 +1,10 @@
 //Part 1: HTML - COMPLETED
-
+let numCorrectAnswer = 0;
 
 //PART 2 - Javascript
 
 `use strict`;
+
 
 const lastNameLength = 5; // Hardcoded secret number (5)
 let attemptCount = 0; // Keeps track of guess attempts
@@ -24,6 +25,7 @@ while (attemptCount < 4) { // Use <= to include 4 attempts
     alert(`Sorry, too short!`);
   } else {
     alert(`Correct, you are right! The answer is ${lastNameLength}`);
+    numCorrectAnswer += 1; //put it after every alert where the user is correct
     break; // Exit the loop even after correct guess
   }
 
@@ -44,12 +46,14 @@ const correct_answers = ["Churros","Tacos","Pho"];
 let question_seven = prompt("Which of these 7 foods are my fav?: Churros, Tacos, Pho, Pizza, Burgurs, Hawaiian, or Mongolian");
 
 if(correct_answers.includes(question_seven)){
+  numCorrectAnswer ++1; 
   alert("Correct");
+  
 
 }else {
   alert("The answer is incorrect!");
 
 }
 
-
+alert("You answered this many correct: ",numCorrectAnswer);//Make an alert()
 
