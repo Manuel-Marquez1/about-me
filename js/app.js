@@ -46,7 +46,7 @@ const correct_answers = ["Churros","Tacos","Pho"];
 let question_seven = prompt("Which of these 7 foods are my fav?: Churros, Tacos, Pho, Pizza, Burgurs, Hawaiian, or Mongolian");
 
 if(correct_answers.includes(question_seven)){
-  numCorrectAnswer ++1; 
+  numCorrectAnswer++; 
   alert("Correct");
   
 
@@ -55,5 +55,5 @@ if(correct_answers.includes(question_seven)){
 
 }
 
-alert("You answered this many correct: ",numCorrectAnswer);//Make an alert()
+alert("Your score is: " + numCorrectAnswer);//Make an alert()
 
