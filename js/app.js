@@ -1,136 +1,131 @@
 `use strict`;
 
-let numCorrectAnswer = 0;
+let score = 0;
 
+const Questions = [
+  {
+    question: 'Is my middle name Adrian?'
+    answer: 'yes',
+    congratulate: 'You are right! My middle name is Adrian',
+    giveAnswer: 'You are wrong; my middle name is indeed Adrian!',
+    questionType: 'YN',
+  },
+  {
+    question: 'Was I born in Mexico City?'
+    answer: 'yes',
+    congratulate: 'You are right! I was born in Mexico City!!!',
+    giveAnswer: 'You are wrong; I was actually born in Mexico City.'
+    questionType: 'YN',
+  },
+  {
+    question: 'Is basketball my favorite sport?',
+    answer: 'yes',
+    congratulate: 'You are right! Basketball is my favorite sport!!!',
+    giveAnswer: 'Sorry, basketball is actually my favorite sport!',
+    questionType:'YN'
+  },
+  {
+    question: 'Are doughnuts my favorite desert?',
+    answer: 'yes',
+    congratulate: 'You are right! Doughnuts are my favorite desert!',
+    giveAnswer: 'Sorry, doughnuts are actually my favorite desert!',
+    questionType: 'YN',
+  },
+  {
+    question: 'Did I go to college in Seattle?',
+    answer: 'yes',
+    congratulate: 'You are right! I did go to community college in Seattle.',
+    giveAnswer: 'Sorry, you are wrong - I actually went to college in Seattle.'
+    questionType: 'YN',
+  },
+  {
+    question: 'How many letters are there in my last name?'
+    answer: Math.floor(Math.random() * 10 - 1 - 1 - 1 - 1 - 1),
+    questionType: 'INT',
+    allowedAttempts: 4
+  },
+  {
+    question: 'Which of these 7 foods are my favorite?',
+    answer: ['Churros', 'Tacos', 'Pho', 'Pizza', 'Burgers','Hawaiian','Mongolian',
+    congratulate: 'Nice. You are correct.',
+    questionType: 'MC'
+    allowedAttempts: 6
+    },
+  ];
 
-//TODO: Ask the user their name through a prompt()
-//DONE: Ask the user their name through a prompt()
-let questionOne = prompt('What is your name?');
-
-//TODO: Display that name back to the user through a custom greeting welcoming them to your site.
-//DONE: Display that name back to the user through a custom greeting welcoming them to your site.
-
-//Note to self: Usa comilla invertida.
-//alert(`Welcome to my site ${questionOne}! Lets play a guessing game. Please answer with a y/n`);
-alert(`Welcome to my site ${questionOne}! Lets play a guessing game. Please answer with Yes OR No`);
-
-//TODO: Display the user’s name back to them in your final message to the user.
-//TODO: Prompt the user a total of 5 questions (yes/no answers) & replace them with an alert.
-
-//Guessing question one
-
-let questionOneGuess = prompt("Is my middle name Adrian?").toLowerCase();
-
-if (questionOneGuess === "Y" ||questionOneGuess === "yes" ){
-  alert("You are right! My middle name is Adrian");
-  numCorrectAnswer++;
-
-} else if (questionOneGuess === "N" ||questionOneGuess === "no"){
-  alert("You are wrong; my middle name is indeed Adrian!");
-} 
-
-
-//Guessing question two
-
-let questionTwoGuess = prompt("Was I born in Mexico City?").toLowerCase();
-
-if (questionTwoGuess === "Y" ||questionTwoGuess === "yes" ){
-  alert("You are right! I was born in Mexico City!!!");
-  numCorrectAnswer++; 
-
-} else if (questionTwoGuess === "N" ||questionTwoGuess === "no"){
-  alert("You are wrong; I was actually born in Mexico City");
-} 
-
-
-//Guessing Question three
-let questionThreeGuess = prompt("Is basketball my favorite sport").toLowerCase();
-
-if (questionThreeGuess === "Y" ||questionThreeGuess === "yes" ){
-  alert("You are right! Basketball is my favorite sport!!!");
-  numCorrectAnswer++; 
-
-} else if (questionThreeGuess === "N" ||questionThreeGuess === "no"){
-  alert("Sorry, Basketball is actually my favorite sport");
-} 
-
-
-//Guessing Question four
-let questionFourGuess = prompt("Are doughnuts my favorite thing for dessert?").toLowerCase();
-
-if (questionFourGuess === "Y" ||questionFourGuess === "yes" ){
-  alert("You are right! Doughnuts are my favorite thing for dessert!");
-  numCorrectAnswer++; 
-
-} else if (questionFourGuess === "N" ||questionFourGuess === "no"){
-  alert("Sorry, Doughnuts are actually my favorite dessert");
-} 
-
-//Guessing Question five
-let questionFiveGuess = prompt("Did I go to college in Seattle?").toLowerCase();
-
-if (questionFiveGuess === "Y" ||questionFiveGuess === "yes" ){
-  alert("You are right! I did go to community college in Seattle");
-  numCorrectAnswer++; 
-
-} else if (questionFiveGuess === "N" ||questionFiveGuess === "no"){
-  alert("Sorry, you are wrong - I actually went to college in Seattle");
-} 
-
-
-//Guessing Question 6
-
-const lastNameLength = 5; // Hardcoded secret number (5)
-let attemptCount = 0; // Keeps track of guess attempts
-
-while (attemptCount < 4) { // Use <= to include 4 attempts
-  guess = prompt(`How many letters are there in my last name?`);
-  guess = parseInt(guess); // Convert guess to a number, handle potential errors
-
-  // Handle invalid input gracefully
-  if (isNaN(guess)) {
-    alert("Invalid guess. Please enter a number.");
-    continue; // Skipping to the next iteration without incrementing attempt count
+function askQuestions(questions) {
+  for (const q of questions) {
+    let answer;
+    switch (q.questionType) {
+      case 'YN':
+        answer: sanitizeInput(prompt(q.question), 'str');
+        while (answer === '' || answer === null || (answer !== 'yes' && answer !== 'no')) {
+        answer = sanitizeInput(prompt(q.question + 'Valid input: yes/no or y/n'), 'str');
+        }
+       if (answer == q.answer) {
+       score++;
+       alert(q.congratulate);
+       } else {
+        alert (q.giveAnswer);
+       } 
+       break;
+       case: 'INT' :
+       let tracker = 0;
+       while (tracker <q.allowedAttempts - 1) {
+        answer = parseInt(prompt(q.question));
+        if (answer === q.answer) {
+          score++;
+          alert('You got the number in ' (tracker + 1) + 'tries!');
+          break;
+        } else if (tracker >= allowedAttempts - 1) {
+          alert ('Sorry. You did not guess correctly. The number was ' + q.answer);
+          break;
+        } else {
+          if (NaN (answer) || answer <1 || answer > 5) {
+            alert('Use a number between 1-10');
+          } else if (answer < q.answer) {
+            alert('The number is greater than ' + answer + '.');
+          }
+        }
+        tracker++;
+       }
+      break;
+     }
+    }
   }
 
-  if (guess > lastNameLength) {
-    alert(`You are a bit high!`);
-  } else if (guess < lastNameLength) {
-    alert(`Sorry, too short!`);
-  } else {
-    alert(`Correct, you are right! The answer is ${lastNameLength}`);
-    numCorrectAnswer += 1; //put it after every alert where the user is correct
-    break; // Exit the loop even after correct guess
+  function sanitizeInput(inputValue, inputType) {
+    if (inputType === 'str') {
+      if (inputValue === null) {
+        inputValue = '';
+      }
+      inputValue = inputValue.toLowerCase();
+      if (inputValue === 'y') {
+        inputValue = 'yes';
+      } else if (inputValue === 'n') {
+        inputValue = 'no';
+      }
+      return inputValue;
+    }
   }
-
-  attemptCount++; // Increment attempt count after a valid guess
-}
-
-if (attemptCount === 4) { // After 4 attempts (<= 4)
-  alert("You lose! The answer was " + lastNameLength);
-}
-
-
-// Guessing Question 7
-
-const correct_answers = ["Churros","Tacos","Pho"];
-
-
-
-let question_seven = prompt("Which of these 7 foods are my fav?: Churros, Tacos, Pho, Pizza, Burgurs, Hawaiian, or Mongolian").toLowerCase();
-
-if(correct_answers.includes(question_seven)){
-  numCorrectAnswer++; 
-  alert("Correct");
+  function kickOff() {
+    let userName = getUserName();
+    alert('Hey ' + userName + ', welcome to my site!');
   
-
-}else {
-  alert("The answer is incorrect!");
-
-}
-
-alert("Your score is:  " + numCorrectAnswer + " out of 7");
-
-//TODO: Display the user’s name back to them in your final message to the user.
-
-alert(`Hey ${questionOne}! Thank you for playing this guessing game. Here is a webpage with some facts about me.`);
+    if (userName !== 'cc') {
+      askQuestions(Questions);
+    }
+  
+    if (userName !== 'cc') {
+      alert('Thanks for playing this guessing game ' + userName + '! You scored ' + score + '/' + Questions.length + '!');
+    } else {
+      alert('Cheaters never play fair!');
+    }
+  }
+  
+  function getUserName() {
+    let userName = prompt('What is your name?');
+    return userName;
+  }
+  
+  kickOff();
